@@ -44,13 +44,6 @@ namespace EX1
             Agua.Preco = 4.00;
             produto.Produtos.Add(Agua);
 
-            Console.WriteLine("======= Cardápio =======\n");
-
-            foreach (var item in produto.Produtos)
-            {
-                Console.WriteLine($"{item.NomeProduto.PadRight(20)} |  R$ {item.Preco:0.00}");
-            }
-            Console.WriteLine("\n=========================");
 
             int pedidoCount = 1;
             int auxNovoPedido = 1;
@@ -58,6 +51,14 @@ namespace EX1
 
             while (auxNovoPedido != 0)
             {
+                Console.WriteLine("======= Cardápio =======\n");
+
+                foreach (var item in produto.Produtos)
+                {
+                    Console.WriteLine($"{item.NomeProduto.PadRight(20)} |  R$ {item.Preco:0.00}");
+                }
+                Console.WriteLine("\n=========================");
+
                 int auxEscolha = 1;
                 Console.WriteLine("Deseja realizar um novo pedido?\n 1 - Sim \n 0 - Não");
                 auxNovoPedido = int.Parse(Console.ReadLine());
@@ -124,6 +125,7 @@ namespace EX1
                 {
                     Console.WriteLine("Pedido finalizado!");
                 }
+                Console.Clear();
             }
 
             foreach (var pedido in todosPedidos)
@@ -133,7 +135,7 @@ namespace EX1
                 {
                     Console.WriteLine($"- {item.NomeProduto.Substring(4).PadRight(20)} - R$ {item.Preco:0.00}");
                 }
-                Console.WriteLine($"Total: R$ {pedido.TotalPedido():0.00}");
+                Console.WriteLine($"{"Total:".PadRight(25)}R$ {pedido.TotalPedido():0.00}");
             }
         }
     }

@@ -13,7 +13,7 @@ namespace EX1
         public double TotalPedido()
         {
             double total = 0;
-            foreach (var item in Pedidos)
+            foreach (Produto item in Pedidos)
             {
                 total += item.Preco;
             }
