@@ -44,7 +44,6 @@ namespace EX1
             Agua.Preco = 4.00;
             produto.Produtos.Add(Agua);
 
-
             int pedidoCount = 1;
             int auxNovoPedido = 1;
             List<Pedido> todosPedidos = new List<Pedido>();
@@ -61,7 +60,15 @@ namespace EX1
 
                 int auxEscolha = 1;
                 Console.WriteLine("Deseja realizar um novo pedido?\n 1 - Sim \n 0 - Não");
-                auxNovoPedido = int.Parse(Console.ReadLine());
+                try
+                {
+                    auxNovoPedido = int.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Apenas valores numéricos são aceitos");
+                    auxNovoPedido = 0;
+                }
                 if (auxNovoPedido != 0)
                 {
                     Pedido pedido = new Pedido();
@@ -124,7 +131,8 @@ namespace EX1
                 else
                 {
                     Console.WriteLine("Pedido finalizado!");
-                }
+                }   
+                Console.ReadLine();
                 Console.Clear();
             }
 
@@ -137,6 +145,7 @@ namespace EX1
                 }
                 Console.WriteLine($"{"Total:".PadRight(25)}R$ {pedido.TotalPedido():0.00}");
             }
+            Console.ReadLine();
         }
     }
 }
